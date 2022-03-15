@@ -35,6 +35,8 @@
             <div class="col-lg">
                 <h4>[<%=book.getCategory() %>]</h4><p>
                 <p><%=book.getDescription()%>
+                <a href = "./product.jsp?id=<%=book.getBookId()%>"
+                class="btn btn-secondary" role="button">상세 정보 &raquo</a>
                 <p><%=book.getAuthor() %>|<%=book.getPublisher() %>|<%=book.getUnitPrice() %>
             </div>
             <hr>
