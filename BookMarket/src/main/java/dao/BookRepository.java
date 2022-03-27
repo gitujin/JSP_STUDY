@@ -5,7 +5,12 @@ import java.util.ArrayList;
 import dto.Book;
 
 public class BookRepository {
-	private ArrayList<Book> listOfBooks = new ArrayList<Book>();
+	ArrayList<Book> listOfBooks = new ArrayList<Book>();
+	private static BookRepository instance = new BookRepository();
+	
+	public static BookRepository getInstance() {
+		return instance;
+	}
 	
 	public BookRepository() {
 		Book book1 = new Book("N100", "HTML5+CSS", 15000);
@@ -40,7 +45,7 @@ public class BookRepository {
         listOfBooks.add(book3);
 	}
 	
-	public ArrayList<Book> getAllProducts(){
+	public ArrayList<Book> getAllBooks(){
 		return listOfBooks;
 	}
 	
@@ -57,4 +62,7 @@ public class BookRepository {
 		return bookById;
 	}
 	
+	public void addProduct(Book book) {
+		listOfBooks.add(book);
+	}
 }
