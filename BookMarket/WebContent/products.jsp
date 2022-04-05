@@ -4,8 +4,7 @@
 <%@ page import="dao.BookRepository" %>
 <html>
 <head>
-<link rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="./resources/css/bootstrap.min.css" />
 <title>Welcome</title>
 </head>    
 <body>
@@ -30,11 +29,14 @@
 		ArrayList<Book> listOfBooks = dao.getAllBooks();
 	%>
 	<div class="container">
-        <div class="col" align="L">
+        <div class="row">
             <%
             for(int i=0;i<listOfBooks.size();i++){
                 Book book = listOfBooks.get(i);
             %>
+            <div class="col-md-5">
+            	<img src="c:/upload/<%=book.getFilename() %>" style="width: 100%">
+            </div>
             <div class="col-md-4">
                 <h4>[<%=book.getCategory() %>] <%=book.getName() %></h4><p>
                 <p><%=book.getDescription()%>
@@ -42,7 +44,9 @@
                 <p><%=book.getAuthor() %>|<%=book.getPublisher() %>|<%=book.getUnitPrice() %>원
             </div>
             <hr>
-            <%} %>            
+            <%
+            } 
+            %>            
         </div> 
 <jsp:include page="footer.jsp"/>
 </body>

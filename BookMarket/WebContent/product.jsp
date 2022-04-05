@@ -3,8 +3,7 @@
 <%@ page import="dao.BookRepository" %>
 <html>
 <head>
-<link rel ="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="./resources/css/bootstrap.min.css" />
 <title>상품 상세 정보</title>
 </head>
 <body>
@@ -21,6 +20,9 @@
 	%>
 	<div class="container">
 		<div class="row">
+			<div class="col-md-5">
+				<img src="c:/upload/<%=book.getFilename() %>" style="width: 100%">
+			</div>
 			<div class="col-md-6">
 				<h3>[<%=book.getCategory()%>]<%=book.getName() %></h3>
 				<p><%=book.getDescription() %>

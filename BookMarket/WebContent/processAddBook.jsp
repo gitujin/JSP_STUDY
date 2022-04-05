@@ -1,21 +1,31 @@
 <%@ page contentType="text/html; charset=utf-8"%>
+<%@ page import="com.oreilly.servlet.*" %>
+<%@ page import="com.oreilly.servlet.multipart.*"%>
+<%@ page import="java.util.*" %>
 <%@ page import="dto.Book"%>
 <%@ page import="dao.BookRepository"%>
 
 <%
-	request.setCharacterEncoding("utf-8");
+	request.setCharacterEncoding("UTF-8");
 	
-	String bookId=request.getParameter("bookId");
-	String name=request.getParameter("name");
-	String unitPrice=request.getParameter("unitPrice");
-	String author=request.getParameter("author");
-	String publisher=request.getParameter("publisher");
-	String releaseDate=request.getParameter("releaseDate");
-	String totalPages=request.getParameter("totalPages");
-	String description=request.getParameter("description");
-	String category=request.getParameter("category");
-	String unitsInStock=request.getParameter("unitsInStock");
-	String condition=request.getParameter("condition");
+	String filename="";
+	String realFolder="C:\\upload"; //웹 애플리케이션상의 절대 경로
+	int maxSize = 5 * 1024 * 1024; //최대 업로드 될 파일의 크기
+	String encType = "utf-8"; //인코딩 유형
+	
+	MultipartRequest multi = new MultipartRequest(request, realFolder, maxSize, encType, new DefaultFileRenamePolicy());
+
+	String bookId=multi.getParameter("bookId");
+	String name=multi.getParameter("name");
+	String unitPrice=multi.getParameter("unitPrice");
+	String author=multi.getParameter("author");
+	String publisher=multi.getParameter("publisher");
+	String releaseDate=multi.getParameter("releaseDate");
+	String totalPages=multi.getParameter("totalPages");
+	String description=multi.getParameter("description");
+	String category=multi.getParameter("category");
+	String unitsInStock=multi.getParameter("unitsInStock");
+	String condition=multi.getParameter("condition");
 	
 	Integer price;
 	
@@ -33,6 +43,9 @@
 		pages=0;
 	else pages=Long.valueOf(totalPages);
 	
+	Enumeration files = multi.getFileNames();
+	String fname = (String) files.nextElement();
+	String fileName = multi.getFilesystemName(fname);
 	
 	BookRepository dao=BookRepository.getInstance();
 	
@@ -49,6 +62,7 @@
 	newProduct.setCategory(category);
 	newProduct.setUnitsInStock(stock);
 	newProduct.setCondition(condition);
+	newProduct.setFilename(filename);
 	
 	dao.addProduct(newProduct);
 	
