@@ -9,7 +9,7 @@
 	<p> <fmt:formatNumber value="3200100" type="number"/>
 	<p> <fmt:formatNumber value="3200100" groupingUsed="false"/>
 	<p> <fmt:formatNumber value="3200100" groupingUsed="true"/>
-	<p> <fmt:formatNumber value="3200100" currentcySymbol ="&"/>
+	<p> <fmt:formatNumber value="3200100" type= "currency" currencySymbol ="&"/>
 	<p> <fmt:formatNumber value="0.45" type="percent"/>
 	<p> <fmt:formatNumber value="3200100" minIntegerDigits="10" minFractionDigits="2"/>
 	<p> <fmt:formatNumber value="3200100.45" pattern=".000"/>
