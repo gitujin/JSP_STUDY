@@ -21,4 +21,9 @@
 			<form-error-page>/ch10/login_failed.jsp</form-error-page>
 		</form-login-config>
 	</login-config>
+	
+	<error-page>
+		<exception-type>javax.servlet.ServletException</exception-type>
+		<location>/ch11/exception_error.jsp</location>
+	</error-page>
 </web-app>

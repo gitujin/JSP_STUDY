@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ page import="dto.Book" %>
 <%@ page import="dao.BookRepository" %>
+<%@ page errorPage="exceptionNoBookId.jsp" %>
 <html>
 <head>
 <link rel="stylesheet" href="./resources/css/bootstrap.min.css" />
@@ -34,7 +35,7 @@
 				<p> <b>총 페이지수</b> : <%=book.getTotalPages() %>
 				<p> <b>출판일</b> : <%=book.getReleaseDate() %>
 				<h4><%=book.getUnitPrice() %>원</h4>
-				<p> <a href ="#" class="btn btn-info">도서 주문 &raquo</a>
+				<p> <a href ="#" class="btn btn-info">도서 주문 &raquo; </a>
 				<a href="./products.jsp" class="btn btn-secondary">도서 목록</a>
 			</div>
 		</div>
