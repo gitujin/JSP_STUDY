@@ -26,4 +26,12 @@
 		<exception-type>javax.servlet.ServletException</exception-type>
 		<location>/ch11/exception_error.jsp</location>
 	</error-page>
+	<filter>
+		<filter-name>loginFilter</filter-name>
+		<filter-class>ch12.com.filter.LoginCheckFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>loginFilter</filter-name>
+		<url-pattern>/ch12/loginForm_success.jsp</url-pattern>
+	</filter-mapping>
 </web-app>
